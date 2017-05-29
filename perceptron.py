@@ -31,8 +31,7 @@ class Perceptron:
 			error_count = 0
 			for line_index in range(0, X_with_bias.shape[0]):
 				x_values = X_with_bias[line_index, :]
-				u = self.aggregation_function(x_values)
-				output = self.activation_function(u)
+				output = self.find_segnal(x_values)
 				if output != y[line_index]:
 					self.back_propagation(x_values, output, y[line_index])
 					error_count += 1
@@ -41,7 +40,13 @@ class Perceptron:
 			if input('Continue : ') != "s" or error_count == 0:
 				break
 
-	
+	def find_segnal(self, x_values):
+		u = self.aggregation_function(x_values)
+		output = self.activation_function(u)
+		return output
+
+	def predict(self, x_values):
+		pass
 
 
 X = np.array([[1,1], [3, 1], [-1, 2], [2, -1], [-1, -1], [1, -3]])
