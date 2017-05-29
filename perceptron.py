@@ -22,12 +22,22 @@ class Perceptron:
 		return prepared_values
 
 	def fit(self, X, y):
-		pass
+		X_with_bias = self.insert_bias(X)
+		for line_index in range(0, X_with_bias.shape[0]):
+			values = X_with_bias[line_index, :]
+			u = self.aggregation_function(values)
+			output = self.activation_function(u)
+			#if output != y[line_index]:
+					
+			
 
 
 
+X = np.array([[1,1], [3, 1], [-1, 2], [2, -1], [-1, -1], [1, -3]])
+y = [1,0,1,0,1,0]
 
 perceptron = Perceptron()
-perceptron.insert_bias(np.array(([3, 1], [2, -1], [1, 1], [-1, -1])))
+perceptron.fit(X, y)
+#perceptron.insert_bias(np.array(([3, 1], [2, -1], [1, 1], [-1, -1])))
 #u = perceptron.aggregation_function(np.array([3, 1, -1]))
 #print(perceptron.activation_function(u))
