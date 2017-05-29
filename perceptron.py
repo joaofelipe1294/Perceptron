@@ -46,13 +46,16 @@ class Perceptron:
 		output = self.find_signal(x_values)
 		return output
 
+	def show_diagonal(self):
+		
+
 
 X = np.array([[1,1], [3, 1], [-1, 2], [2, -1], [-1, -1], [1, -3]])
 y = [1,0,1,0,1,0]
 
 perceptron = Perceptron()
 perceptron.fit(X, y)
-label = perceptron.predict(np.array([-1, 4]))
+label = perceptron.predict(np.array([0, 0]))
 print(label)
 
 #perceptron.insert_bias(np.array(([3, 1], [2, -1], [1, 1], [-1, -1])))
