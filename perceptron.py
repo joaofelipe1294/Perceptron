@@ -6,7 +6,7 @@ class Perceptron:
 
 	def __init__(self):
 		self.bias = -1
-		self.weights = np.array(np.random.random_sample((3,)))
+		self.weights = np.random.random_sample((3,))
 		
 	def aggregation_function(self, values):
 		return (values * self.weights).sum()
@@ -47,15 +47,19 @@ class Perceptron:
 		return output
 
 	def show_diagonal(self):
-		
+		for x in range(0,10):
+			pass
 
 
-X = np.array([[1,1], [3, 1], [-1, 2], [2, -1], [-1, -1], [1, -3]])
-y = [1,0,1,0,1,0]
+#X = np.array([[1,1], [3, 1], [-1, 2], [2, -1], [-1, -1], [1, -3]])
+#y = [1,0,1,0,1,0]
+X = np.array([[2,2], [-2, -2], [-2, 2], [-1, 1]])
+y = [0,1,0,1]
+
 
 perceptron = Perceptron()
 perceptron.fit(X, y)
-label = perceptron.predict(np.array([0, 0]))
+label = perceptron.predict(np.array([-5, 4]))
 print(label)
 
 #perceptron.insert_bias(np.array(([3, 1], [2, -1], [1, 1], [-1, -1])))
